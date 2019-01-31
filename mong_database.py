@@ -1,17 +1,17 @@
 import hashlib
 from datetime import datetime
-# import redis
+import redis
 from pymongo import MongoClient
 
 
 
 class MongoManager(object):
 
-    def __init__(self, server_ip='localhost', client=None):
+    def __init__(self, server_ip='118.25.231.22', client=None):
         print(server_ip)
         self.client = MongoClient(server_ip, 27017) if client is None else client
-        # self.redis_client = redis.StrictRedis(host=server_ip, port=6379, db=0)
-        self.mongo_db = self.client.flask_database
+        self.redis_client = redis.StrictRedis(host='172.17.0.10', port=6379, db=0)
+        self.mongo_db = self.client.flask_database_temp
 
     # def check_query(self, query):
     #     num = self.redis_client.get(query)
