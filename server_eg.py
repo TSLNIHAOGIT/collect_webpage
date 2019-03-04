@@ -18,6 +18,7 @@ app = Flask(__name__)
 @app.route('/api/add_message/<uuid>', methods=['GET', 'POST'])
 def add_message(uuid):
     content = request.get_json(silent=True,force=True)
+
     print('content',content) # Do your processing
     #response must be a string\tupe\ and so on.
     return jsonify(content)
